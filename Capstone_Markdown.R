@@ -52,7 +52,7 @@ print(bike_data_v2)
 skim(bike_data_v2)
 str(bike_data_v2)
 
-#The data frame also includes starting and ending coordinates. I'm creating a column to calculate the distance made during each trip using distGeo(). 
+#The data frame also includes starting and ending coordinates. I'm creating a column to calculate the distance between starting and ending stations for each rider's trip using distGeo(). 
 #This function outputs in meters which I will convert to miles.
 bike_data_v2 <- bike_data_v2 %>%
   mutate (
