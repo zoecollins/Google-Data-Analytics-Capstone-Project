@@ -60,6 +60,5 @@ bike_data_v2 <- bike_data_v2 %>%
     distance_miles = distance_meters / 1609.344
     )
 
-bike_data_v2 = bike_data_v2 %>% count (
-  distinct(start_station_name)
-)
+bike_data_v2$start_time = hms::as_hms(bike_data_v2$start_time)
+bike_data_v2$end_time = hms::as_hms(bike_data_v2$end_time)
