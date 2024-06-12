@@ -60,3 +60,6 @@ bike_data_v2 <- bike_data_v2 %>%
     distance_miles = distance_meters / 1609.344
     )
 
+bike_data_v2 = bike_data_v2 %>% count (
+  distinct(start_station_name)
+)
