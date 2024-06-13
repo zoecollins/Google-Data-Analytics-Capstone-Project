@@ -62,3 +62,6 @@ bike_data_v2 <- bike_data_v2 %>%
 
 bike_data_v2$start_time = hms::as_hms(bike_data_v2$start_time)
 bike_data_v2$end_time = hms::as_hms(bike_data_v2$end_time)
+
+ ggplot(data = bike_data_v2) + 
++   geom_bar(mapping = aes(x = rideable_type)) + facet_wrap(~member_casual)
