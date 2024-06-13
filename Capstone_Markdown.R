@@ -65,3 +65,5 @@ bike_data_v2$end_time = hms::as_hms(bike_data_v2$end_time)
 
  ggplot(data = bike_data_v2) + 
 +   geom_bar(mapping = aes(x = rideable_type)) + facet_wrap(~member_casual)
+
+For better readability in ggplot() I will create time categories of the start_times into morning, afternoon, evening, and night.
