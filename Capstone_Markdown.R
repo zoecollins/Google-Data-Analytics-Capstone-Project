@@ -48,28 +48,49 @@ bike_data_v2 <- bike_data_v2 %>%
   )
 
 
-print(bike_data_v2)
-skim(bike_data_v2)
-str(bike_data_v2)
+# making sure the start and end time's show as numeric types.
+bike_data_v2$start_time = hms::as_hms(bike_data_v2$start_time)
+bike_data_v2$end_time = hms::as_hms(bike_data_v2$end_time)
+
 
 #The data frame also includes starting and ending coordinates. I'm creating a column to calculate the distance between starting and ending stations for each rider's trip using distGeo(). 
 #This function outputs in meters which I will convert to miles.
 bike_data_v2 <- bike_data_v2 %>%
   mutate (
     distance_meters = distGeo(cbind(start_lng, start_lat), cbind(end_lng, end_lat)),
-    distance_miles = distance_meters / 1609.344
-    )
+    distance_miles = round(distance_meters / 1609.344, 1)
+  )
 
-bike_data_v2$start_time = hms::as_hms(bike_data_v2$start_time)
-bike_data_v2$end_time = hms::as_hms(bike_data_v2$end_time)
 
-ggplot(data = bike_data_v2) + 
-  geom_bar(mapping = aes(x = rideable_type, fill=member_casual)) 
+#Hour of day
+bike_data_v2 <- bike_data_v2 %>%
+  mutate ( start_hour = hour(start_time),
+           end_hour = hour(end_time)
+  )
 
+###GRAPHS###
+#histogram
 ggplot(data = bike_data_v2) +
   geom_histogram(mapping = aes(x = start_time))
 
+#bar
+ggplot(data = bike_data_v2) + 
+  geom_bar(mapping = aes(x = rideable_type, fill=member_casual), position = "dodge")
+
+
 ggplot(data = bike_data_v2) +
-  geom_bar(mapping = aes(distance_miles, fill=member_casual))
+  geom_bar(mapping = aes(x = start_hour, fill=member_casual), stat="count", position = "dodge") +
+  scale_x_continuous (breaks = seq(0, 24, by = 1)) +
+  labs(title = "Bar Plot of Start Hour by Member Type",
+     x = "Start Hour",
+     y = "Count")  
+
+
+#Miles
+ggplot(data = bike_data_v2) +
+  geom_bar(mapping = aes(x = distance_miles, fill=member_casual), position = "dodge") + 
+  scale_x_continuous(limits = c(0,8), breaks = seq(0, 8, by = 0.5)) + 
+  scale_y_continuous(limits = c(0,1000))
+
 
 For better readability in ggplot() I will create time categories of by hour_of_day.
