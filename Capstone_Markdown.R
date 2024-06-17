@@ -6,7 +6,8 @@ This is part of the Google Data Analytics Capstone project, and this notebook wa
 
 # Ask
 
-The objective of this project.
+The key objective of this analysis is to encourage casual members to purchase annual memberships, as maximizing the number of annual members will be key to future growth.
+How casual and annual members use the service differently needs to be identified.
 
 # Load necessary libraries
 
