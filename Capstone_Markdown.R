@@ -6,7 +6,8 @@ This is part of the Google Data Analytics Capstone project, and this notebook wa
 
 # Scenario
 
-The director of marketing at Cyclistic, a bike-share company in Chicago, believes the company’s future success depends on maximizing the number of annual memberships. Therefore, your team wants to understand how casual riders and annual members use Cyclistic bikes differently. From these insights, your team will design a new marketing strategy to convert casual riders into annual members. 
+The key objective for the marketing team is to encourage casual members to purchase annual memberships, as maximizing the number of annual members will be key to future growth.
+How casual and annual members use the service differently, why casual riders would buy a membership, and how digital media could affect their marketing tactics need to be identified to design a new marketing strategy that will convert casual riders into annual members.
 
 
 # Ask
