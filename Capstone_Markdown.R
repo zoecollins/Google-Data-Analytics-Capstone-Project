@@ -4,10 +4,15 @@
 
 This is part of the Google Data Analytics Capstone project, and this notebook was created to document my data analysis process.
 
+# Scenario
+
+The director of marketing at Cyclistic, a bike-share company in Chicago, believes the company’s future success depends on maximizing the number of annual memberships. Therefore, your team wants to understand how casual riders and annual members use Cyclistic bikes differently. From these insights, your team will design a new marketing strategy to convert casual riders into annual members. 
+
+
 # Ask
 
 The key objective of this analysis is to encourage casual members to purchase annual memberships, as maximizing the number of annual members will be key to future growth.
-How casual and annual members use the service differently needs to be identified.
+How casual and annual members use the service differently, why casual riders would buy a membership, and how digital media could affect their marketing tactics need to be identified to design a new marketing strategy that will convert casual riders into annual members.
 
 # Load necessary libraries
 
@@ -20,6 +25,9 @@ library(skimr)
 library(geosphere)
 
 # Prepare
+
+To prepare, I have downloaded 6 months of data from Cyclistic's database. In Excel, I created a categorical column "ride_length" for each file and ensured that all 6 files had the same columns and column names to later combine properly in R or SQL. These were then exported via Excel (.csv) files.
+
 Here we can see that some variables have rows with missing data.
 For the integrity of our analysis, I will remove them using the drop_na function.
 
