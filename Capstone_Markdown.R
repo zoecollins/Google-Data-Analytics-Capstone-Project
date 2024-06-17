@@ -1,3 +1,13 @@
+# Google Data Analytics Capstone Project
+
+*prepared by Zoë Collins*
+
+This is part of the Google Data Analytics Capstone project, and this notebook was created to document my data analysis process.
+
+# Ask
+
+The objective of this project.
+
 # Load necessary libraries
 
 install.packages("tidyverse")
@@ -7,6 +17,10 @@ install.packages("geosphere")
 library(tidyverse)
 library(skimr)
 library(geosphere)
+
+# Prepare
+Here we can see that some variables have rows with missing data.
+For the integrity of our analysis, I will remove them using the drop_na function.
 
 #Reading the csv files
 file_2310 <- read_csv("202310-divvy-tripdata.csv")
@@ -38,6 +52,11 @@ bike_data_v2$started_at = parse_date_time(bike_data_v2$started_at, orders = "mdy
 bike_data_v2$ended_at = parse_date_time(bike_data_v2$ended_at, orders = "mdy HM")
 bike_data_v2$ride_length = hms::as_hms(bike_data_v2$ride_length)
 
+# Process
+**Creating Categorical columns**
+
+Now that the data types are updated, I will separate the start and end times into their own columns for better analysis.
+
 #Creating separate columns for both starting and ending times and dates.
 bike_data_v2 <- bike_data_v2 %>%
   mutate(
@@ -65,7 +84,8 @@ bike_data_v2 <- bike_data_v2 %>%
 #Hour of day
 bike_data_v2 <- bike_data_v2 %>%
   mutate ( start_hour = hour(start_time),
-           end_hour = hour(end_time)
+           end_hour = hour(end_time),
+           month_start = month(start_date)
   )
 
 ###GRAPHS###
