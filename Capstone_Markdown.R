@@ -106,7 +106,7 @@ bike_data_v2 <- bike_data_v2 %>%
 ggplot(data = bike_data_v2) +
   geom_histogram(mapping = aes(x = start_time))
 
-#bar
+#Which type of bike does each member type prefer?
 ggplot(data = bike_data_v2) + 
   geom_bar(mapping = aes(x = rideable_type, fill=member_casual), position = "dodge")
 
