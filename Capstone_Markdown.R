@@ -25,10 +25,9 @@ library(geosphere)
 
 # Prepare
 
-To prepare, I have downloaded 6 months of data from Cyclistic's database. In Excel, I created a categorical column "ride_length" for each file and ensured that all 6 files had the same columns and column names to later combine properly in R or SQL. These were then exported via Excel (.csv) files.
+#To prepare, I have downloaded 6 months of data from Cyclistic's database. In Excel, I created a categorical column "ride_length" for each file and ensured that all 6 files had the same columns and column names to later combine properly in R or SQL. These were then exported via Excel (.csv) files.
 
-Here we can see that some variables have rows with missing data.
-For the integrity of our analysis, I will remove them using the drop_na function.
+#Here we can see that some variables have rows with missing data. For the integrity of our analysis, I will remove them using the drop_na function.
 
 #Reading the csv files
 file_2310 <- read_csv("202310-divvy-tripdata.csv")
@@ -61,12 +60,7 @@ bike_data_v2$ended_at = parse_date_time(bike_data_v2$ended_at, orders = "mdy HM"
 bike_data_v2$ride_length = hms::as_hms(bike_data_v2$ride_length)
 
 # Process
-Creating categorical columns
-
-**start_time**
-
-**start_date**
-
+#Creating categorical columns
 #Now that the data types are updated, I will separate the start and end times into their own columns for better analysis.
 
 #Creating separate columns for both starting and ending times and dates.
@@ -89,7 +83,7 @@ bike_data_v2$end_time = hms::as_hms(bike_data_v2$end_time)
 **distance_miles**
 
 ##The data frame also includes starting and ending coordinates. 
-#**distance_miles** column represents the distance between starting and ending stations for each rider's trip in miles.
+#**distance_miles** column represents the distance between the starting and ending stations for each rider's trip in miles.
 
 bike_data_v2 <- bike_data_v2 %>%
   mutate (
