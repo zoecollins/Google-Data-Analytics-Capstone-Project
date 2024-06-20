@@ -61,9 +61,13 @@ bike_data_v2$ended_at = parse_date_time(bike_data_v2$ended_at, orders = "mdy HM"
 bike_data_v2$ride_length = hms::as_hms(bike_data_v2$ride_length)
 
 # Process
-**Creating Categorical columns**
+Creating categorical columns
 
-Now that the data types are updated, I will separate the start and end times into their own columns for better analysis.
+**start_time**
+
+**start_date**
+
+#Now that the data types are updated, I will separate the start and end times into their own columns for better analysis.
 
 #Creating separate columns for both starting and ending times and dates.
 bike_data_v2 <- bike_data_v2 %>%
@@ -80,8 +84,13 @@ bike_data_v2$start_time = hms::as_hms(bike_data_v2$start_time)
 bike_data_v2$end_time = hms::as_hms(bike_data_v2$end_time)
 
 
-#The data frame also includes starting and ending coordinates. I'm creating a column to calculate the distance between starting and ending stations for each rider's trip using distGeo(). 
-#This function outputs in meters which I will convert to miles.
+**distGeo()**
+
+**distance_miles**
+
+##The data frame also includes starting and ending coordinates. 
+#**distance_miles** column represents the distance between starting and ending stations for each rider's trip in miles.
+
 bike_data_v2 <- bike_data_v2 %>%
   mutate (
     distance_meters = distGeo(cbind(start_lng, start_lat), cbind(end_lng, end_lat)),
