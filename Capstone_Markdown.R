@@ -100,6 +100,8 @@ bike_data_v2 <- bike_data_v2 %>%
   )
 
 ###GRAPHS###
+
+
 #histogram
 ggplot(data = bike_data_v2) +
   geom_histogram(mapping = aes(x = start_time))
@@ -108,7 +110,7 @@ ggplot(data = bike_data_v2) +
 ggplot(data = bike_data_v2) + 
   geom_bar(mapping = aes(x = rideable_type, fill=member_casual), position = "dodge")
 
-
+#What is the average start hour per member type?
 ggplot(data = bike_data_v2) +
   geom_bar(mapping = aes(x = start_hour, fill=member_casual), stat="count", position = "dodge") +
   scale_x_continuous (breaks = seq(0, 24, by = 1)) +
@@ -117,7 +119,7 @@ ggplot(data = bike_data_v2) +
      y = "Count")  
 
 
-#Miles
+#What is the average length of trips per member type?
 ggplot(data = bike_data_v2) +
   geom_bar(mapping = aes(x = distance_miles, fill=member_casual), position = "dodge") + 
   scale_x_continuous(limits = c(0,8), breaks = seq(0, 8, by = 0.5)) + 
