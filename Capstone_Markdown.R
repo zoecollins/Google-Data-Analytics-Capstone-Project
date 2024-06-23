@@ -126,17 +126,15 @@ ggplot(data = bike_data_v2) +
   scale_y_continuous(limits = c(0,1000))
 
 
-For better readability in ggplot() I will create time categories of by hour_of_day.
-
-
-
 #SHARE
 
 
-There are more casual members than members. All users choose classic bikes more than electric ones. On average, those who purchased memberships travel further distances (calculated by the shortest distance between the starting and ending docking stations). Most casual members have on average 2 miles between their starting and ending station while most membership holders have a further distance of 3.5 miles.
+#There are more casual members than members. 
+#All users choose classic bikes more than electric ones. 
+#On average, those who purchased memberships travel further distances (calculated by the shortest distance between the starting and ending docking stations). 
+#Most casual members have on average 2 miles between their starting and ending station while most membership holders have a further distance of 3.5 miles.
+#Casual members begin rides on average between 3 - 5 pm. Membership holders on average begin rides between 3 - 6 pm with an additional peak earlier in the day at 8 am.
 
-Casual members begin rides on average between 3 - 5 pm. Membership holders on average begin rides between 3 - 6 pm with an additional peak earlier in the day at 8 am.
-
-What can be surmised about these user habits?
+#What can be surmised about how members use the service?
 
 Members
