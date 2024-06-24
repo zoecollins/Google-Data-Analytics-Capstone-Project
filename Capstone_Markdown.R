@@ -140,14 +140,13 @@ ggplot(data = bike_data_v2) +
        x = "Miles Between Stations",
        y = "Count") 
 
-#Average ride length time per user per month
+#Average ride length time per member type per month
 ggplot(data = bike_data_v2) + 
-  geom_bar(mapping = aes(x = ride_length_rounded_hms, fill=member_casual), position = "dodge") + facet_wrap(~month_start) +
-  scale_x_continuous(limits = c(0,60))+
-  labs(title = "Bar Plot of Average Ride Length Time by Member Type",
-       x = "Ride Length Time",
-       y = "Count") 
-
+  geom_bar(mapping = aes(x = ride_length_rounded_hms, fill=member_casual), stat="count",position = "dodge") + facet_wrap(~month_start) +
+  scale_x_continuous(limits = c(0,60), breaks = seq(0, 60, by = 10))+
+  labs(title = "Bar Plot of Average Ride Length Time per Member Type by Month",
+       x = "Ride Length Time in Minutes",
+       y = "Count")
 
 #SHARE
 
