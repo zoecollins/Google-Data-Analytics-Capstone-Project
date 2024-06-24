@@ -105,7 +105,7 @@ bike_data_v2 <- bike_data_v2 %>%
 bike_data_v2 <- bike_data_v2 %>%
   mutate ( start_hour = hour(start_time),
            end_hour = hour(end_time),
-           month_start = month(start_date)
+           month_start = month(start_date, label = TRUE)
   )
 
 ###GRAPHS###
@@ -117,7 +117,10 @@ ggplot(data = bike_data_v2) +
 
 #Which type of bike does each member type prefer?
 ggplot(data = bike_data_v2) + 
-  geom_bar(mapping = aes(x = rideable_type, fill=member_casual), position = "dodge")
+  geom_bar(mapping = aes(x = rideable_type, fill=member_casual), position = "dodge") +
+labs(title = "Bar Plot of Bike Type Chosen by Member Type",
+     x = "Bike Type",
+     y = "Count")  
 
 #What is the average start hour per member type?
 ggplot(data = bike_data_v2) +
@@ -132,7 +135,18 @@ ggplot(data = bike_data_v2) +
 ggplot(data = bike_data_v2) +
   geom_bar(mapping = aes(x = distance_miles, fill=member_casual), position = "dodge") + 
   scale_x_continuous(limits = c(0,8), breaks = seq(0, 8, by = 0.5)) + 
-  scale_y_continuous(limits = c(0,1000))
+  scale_y_continuous(limits = c(0,1000))+
+  labs(title = "Bar Plot of Average Miles per trip by Member Type",
+       x = "Miles Between Stations",
+       y = "Count") 
+
+#Average ride length time per user per month
+ggplot(data = bike_data_v2) + 
+  geom_bar(mapping = aes(x = ride_length_rounded_hms, fill=member_casual), position = "dodge") + facet_wrap(~month_start) +
+  scale_x_continuous(limits = c(0,60))+
+  labs(title = "Bar Plot of Average Ride Length Time by Member Type",
+       x = "Ride Length Time",
+       y = "Count") 
 
 
 #SHARE
