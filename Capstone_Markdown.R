@@ -91,6 +91,15 @@ bike_data_v2 <- bike_data_v2 %>%
     distance_miles = round(distance_meters / 1609.344, 1)
   )
 
+#Rounding ride_length to the nearest minute.
+
+bike_data_v2 <- bike_data_v2 %>%
+  mutate(
+    ride_length_posix = as.POSIXct(ride_length, format = "%H:%M:%S", origin = "1970-01-01", tz = "UTC"),
+    ride_length_rounded = round_date(ride_length_posix, "minute"),
+    ride_length_rounded_hms = hms::as_hms(ride_length_rounded)
+  )
+
 
 #Hour of day
 bike_data_v2 <- bike_data_v2 %>%
