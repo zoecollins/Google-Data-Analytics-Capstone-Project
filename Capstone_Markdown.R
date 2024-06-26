@@ -151,7 +151,7 @@ ggplot(data = bike_data_v2) +
 #Distance per member
 ggplot(data = bike_data_v2) +
   geom_bar(mapping = aes(x = distance_miles, fill=member_casual), position = "dodge") + facet_wrap(~month_start) +
-  scale_x_continuous(limits = c(0,8), breaks = seq(0, 8, by = 0.5)) + 
+  scale_x_continuous(limits = c(0,8), breaks = seq(0, 8, by = 1)) + 
   scale_y_continuous(limits = c(0,1000)) +
   labs(title = "Bar Plot of Average Miles per Trip per Member by Month",
        x = "Distance in Miles",
