@@ -169,4 +169,10 @@ ggplot(data = bike_data_v2) +
 
 #What can be surmised about how members use the service?
 
-Members
+
+#ACT
+
+#The final conclusion based on my analysis?
+#How could these insights apply to the business?
+#What next steps would be taken based on your findings?
+#Is there additional data you could use to expand on your findings?
