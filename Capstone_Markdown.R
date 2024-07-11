@@ -167,12 +167,14 @@ ggplot(data = bike_data_v2) +
 #Most casual members have on average 2 miles between their starting and ending station while most membership holders have a further distance of 3.5 miles.
 #Casual members begin rides on average between 3 - 5 pm. Membership holders on average begin rides between 3 - 6 pm with an additional peak earlier in the day at 8 am.
 
-#What can be surmised about how members use the service?
 
 
 #ACT
 
-#The final conclusion based on my analysis?
-#How could these insights apply to the business?
-#What next steps would be taken based on your findings?
-#Is there additional data you could use to expand on your findings?
+#The final conclusion based on my analysis? I conclude that those who purchased memberships tend to take longer trips than those who did not. This indicates the membership owners use the service differently for commuting to work or sport whereas the casual members use them for shorter trips.
+
+#How could these insights apply to the business? These insights could apply to businesses and help determine how to persuade casual members to purchase memberships.
+
+#What next steps would be taken based on your findings? Based on my findings, I would encourage the marketing team to include a benefit system that encourages rides to take longer trips or suggests commuting to work. After this, casual members may consider the bike-share service as a means to commute longer distances.
+
+#Is there additional data you could use to expand on your findings? Additional data that may be helpful, but was not provided in this data set is the record of events that may have been happening in the area and influenced the usage of the bikes.
