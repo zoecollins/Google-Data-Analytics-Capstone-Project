@@ -27,3 +27,11 @@ UNION ALL
 SELECT * FROM `zoe-my-first-sandbox-project.trip_data.data_202402`
 UNION ALL
 SELECT * FROM `zoe-my-first-sandbox-project.trip_data.data_202403`
+
+
+#Basic Queries
+
+SELECT member_casual, COUNT(ride_id) as member_count
+FROM `zoe-my-first-sandbox-project.trip_data.combined`
+GROUP BY member_casual; 
+
